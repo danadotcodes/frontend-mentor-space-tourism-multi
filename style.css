@@ -117,6 +117,21 @@ select {
   border: 0;
 }
 
+.skip-to-content {
+  position: absolute;
+  z-index: 9999;
+  background: hsl(var(--clr-neutral-100));
+  color: hsl(var(--clr-neutral-900));
+  padding: 0.5em 1em;
+  margin-inline: auto;
+  transform: translateY(-100%);
+  transition: transform 250ms ease-in;
+}
+
+.skip-to-content:focus {
+  transform: translateY(0);
+}
+
 .bg-neutral-100 {
   background-color: hsl(var(--clr-neutral-100));
 }
@@ -300,7 +315,7 @@ p {
 /* Navigation */
 
 .logo {
-  margin: 1.5rem clamp(1.5rem, 5vw, 3.4375rem);
+  margin: 1.25rem clamp(1.5rem, 5vw, 3.4375rem);
 }
 
 .primary-header {
@@ -391,30 +406,38 @@ p {
   }
 }
 
-@media (min-width: 30em) and (max-width: 50em) {
+@media (min-width: 30em) {
   .primary-navigation {
-    padding-inline: 3rem;
+    padding-inline: clamp(3rem, 7vw, 7.6875rem);
   }
+}
 
+@media (min-width: 30em) and (max-width: 49.999em) {
   .primary-navigation a > span {
     display: none;
   }
 }
 
-@media (min-width: 30em) {
-  .primary-navigation {
-    padding-inline: 3rem;
-  }
-}
-
 @media (min-width: 50em) {
-  .logo {
-    margin: 3.4375rem;
+  .primary-header::after {
+    content: "";
+    display: block;
+    position: relative;
+    height: 1px;
+    width: 100%;
+    margin-right: -2.5rem;
+    background: hsl(var(--clr-neutral-100) / 0.25);
+    order: 1;
+  }
+
+  nav {
+    order: 2;
   }
 
   .primary-navigation {
     --gap: 3rem;
     --underline-gap: 3rem;
+    margin-block: 2.5rem;
   }
 }
 
@@ -481,18 +504,6 @@ p {
   background-color: hsl(var(--clr-neutral-900)); /* is this needed? */
 }
 
-@media (min-width: 30em) {
-  .numbered-indicators > * {
-    padding: 1em; /* confirm w number text */
-  }
-}
-
-@media (min-width: 50em) {
-  .numbered-indicators > * {
-    padding: 1.375em; /* confirm w number text */
-  }
-}
-
 .numbered-indicators > *:hover,
 .numbered-indicators > *:focus {
   border-color: hsl(var(--clr-neutral-100));
@@ -509,6 +520,18 @@ p {
   font-weight: var(--fw-bold);
   color: hsl(var(--clr-neutral-100) / 0.25);
   margin-right: 1em;
+}
+
+@media (min-width: 30em) {
+  .numbered-indicators > * {
+    padding: 1em; /* confirm w number text */
+  }
+}
+
+@media (min-width: 50em) {
+  .numbered-indicators > * {
+    padding: 1.375em; /* confirm w number text */
+  }
 }
 
 /* Link */
