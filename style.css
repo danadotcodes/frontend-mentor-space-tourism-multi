@@ -15,31 +15,35 @@
   --fw-regular: 400;
   --fw-bold: 700;
 
-  --fs-200: 0.875rem;
-  --fs-300: 1rem;
-  --fs-400: 0.9375rem;
-  --fs-500: 1.75rem;
-  --fs-600: 1rem; /* is this right? */
-  --fs-700: 1.5rem; /* is this right? */
-  --fs-800: 3.5rem;
-  --fs-900: clamp(5rem, 10vw + 1rem, 9.375rem);
+  --fs-100: 0.875rem; /* 14px */
+  --fs-200: 0.875rem; /* 14px */
+  --fs-300: 0.9375rem; /* 15px, Body */
+  --fs-400: 1rem; /* 16px */
+  --fs-500: 1rem; /* 16px */
+  --fs-600: 1.5rem; /* 24px */
+  --fs-700: 1.75rem; /* 28px */
+  --fs-800: 3.5rem; /* 56px */
+  --fs-900: clamp(5rem, 10vw + 1rem, 9.375rem); /* 80px, 150px */
 }
 
 @media (min-width: 30em) {
   :root {
-    --fs-400: 1rem;
-    --fs-600: 1.5rem;
-    --fs-700: 2.5rem;
-    --fs-800: 5rem;
+    --fs-200: 1rem; /* 16px */
+    --fs-300: 1rem; /* 16px */
+    --fs-400: 1.25rem; /* 20px */
+    --fs-500: 1.5rem; /* 24px */
+    --fs-600: 2.5rem; /* 40px */
+    --fs-800: 5rem; /* 80px */
   }
 }
 
 @media (min-width: 50em) {
   :root {
-    --fs-400: 1.125rem;
-    --fs-600: 2rem;
-    --fs-700: 3.5rem;
-    --fs-800: 6.25rem;
+    --fs-300: 1.125rem; /* 18px */
+    --fs-400: 1.75rem; /* 28px */
+    --fs-500: 2rem; /* 32px */
+    --fs-600: 3.5rem; /* 56px */
+    --fs-800: 6.25rem; /* 100px */
   }
 }
 
@@ -172,6 +176,10 @@ select {
   font-weight: var(--fw-bold);
 }
 
+.fs-100 {
+  font-size: var(--fs-100);
+}
+
 .fs-200 {
   font-size: var(--fs-200);
 }
@@ -211,16 +219,32 @@ select {
   line-height: 1.1;
 }
 
+.letter-spacing-primary {
+  letter-spacing: 2.7px;
+}
+
+.letter-spacing-primary span {
+  letter-spacing: 0;
+}
+
 .letter-spacing-1 {
-  letter-spacing: 2.35px;
+  letter-spacing: 2.3625px;
 }
 
 .letter-spacing-2 {
   letter-spacing: 2.7px;
 }
 
-.letter-spacing-3 {
-  letter-spacing: 4.75px;
+@media (min-width: 30em) {
+  .letter-spacing-primary {
+    letter-spacing: 3.375px;
+  }
+}
+
+@media (min-width: 50em) {
+  .letter-spacing-primary {
+    letter-spacing: 4.725px;
+  }
 }
 
 .uppercase {
@@ -258,7 +282,7 @@ select {
   padding-inline: 1rem;
 }
 
-.grid-container * {
+.grid-container p {
   max-width: 50ch;
 }
 
@@ -293,7 +317,7 @@ body {
   grid-template-rows: min-content 1fr;
 
   font-family: var(--ff-body);
-  font-size: var(--fs-400);
+  font-size: var(--fs-300);
   color: hsl(var(--clr-accent-400));
   background-color: hsl(var(--clr-neutral-900));
 
@@ -326,6 +350,8 @@ p {
 .primary-navigation {
   --gap: clamp(1.5rem, 5vw, 2.3125rem);
   --underline-gap: 2rem;
+  font-size: 1rem;
+  letter-spacing: 2.7px;
   background: hsl(var(--clr-neutral-900) / 0.95);
 }
 
@@ -359,6 +385,7 @@ p {
     inset: 0 0 0 32%;
 
     flex-direction: column;
+
     /* padding: min(20rem, 5vh); */
     padding-top: 7.375rem;
     padding-left: 2rem;
@@ -413,6 +440,11 @@ p {
 }
 
 @media (min-width: 30em) and (max-width: 49.999em) {
+  .primary-navigation {
+    font-size: 0.875rem;
+    letter-spacing: 2.3625px;
+  }
+
   .primary-navigation a > span {
     display: none;
   }
@@ -437,6 +469,7 @@ p {
   .primary-navigation {
     --gap: 3rem;
     --underline-gap: 3rem;
+    /* font-size: 1rem; */
     margin-block: 2.5rem;
   }
 }
@@ -514,14 +547,6 @@ p {
   background-color: hsl(var(--clr-neutral-100));
 }
 
-/* Numbered Sub-Heading */
-
-.numbered span {
-  font-weight: var(--fw-bold);
-  color: hsl(var(--clr-neutral-100) / 0.25);
-  margin-right: 1em;
-}
-
 @media (min-width: 30em) {
   .numbered-indicators > * {
     padding: 1em; /* confirm w number text */
@@ -534,6 +559,35 @@ p {
   }
 }
 
+/* Numbered Sub-Heading */
+
+.numbered-title {
+  font-family: var(--ff-primary-cond);
+  font-size: 1rem;
+  letter-spacing: 2.7px;
+  color: hsl(var(--clr-neutral-100));
+  text-transform: uppercase;
+}
+
+.numbered-title span {
+  font-weight: var(--fw-bold);
+  color: hsl(var(--clr-neutral-100) / 0.25);
+  margin-right: 1em;
+}
+
+@media (min-width: 30em) {
+  .numbered-title {
+    letter-spacing: 3.375px;
+  }
+}
+
+@media (min-width: 50em) {
+  .numbered-title {
+    font-size: 1.75rem;
+    letter-spacing: 4.725px;
+  }
+}
+
 /* Link */
 
 .large-button {
@@ -543,6 +597,8 @@ p {
   display: inline-grid;
   place-items: center;
   font-size: 1.25rem;
+  letter-spacing: 1.25px;
+  text-decoration: none;
   padding: 0 1.5em;
   aspect-ratio: 1;
   border-radius: 50%;
@@ -551,6 +607,7 @@ p {
 @media (min-width: 30em) {
   .large-button {
     font-size: 2rem;
+    letter-spacing: 2px;
   }
 }
 
