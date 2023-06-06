@@ -269,6 +269,12 @@ select {
   margin-block-start: var(--flow-space, 1rem);
 }
 
+.flow--space-small {
+  --flow-space: 0.5rem;
+}
+
+/* Create --flow-space-1, --flow-space-2 etc utility classes? */
+
 .container {
   padding-inline: 2em;
   margin-inline: auto;
@@ -318,7 +324,7 @@ p {
   outline: 3px solid limegreen;
 } */
 
-/* Destination */
+/* Destination Page Layout */
 
 .grid-container--destination {
   --flow-space: 2rem; /* Note: design specs various spacing sizes  */
@@ -329,7 +335,7 @@ p {
     "content";
 }
 
-.grid-container--destination > img {
+.grid-container--destination > picture {
   grid-area: image;
   max-width: 60%;
 }
@@ -349,6 +355,35 @@ p {
   margin-block-start: 2rem;
 }
 
+/* Crew Page Layout */
+
+.grid-container--crew {
+  --flow-space: 2rem;
+  grid-template-areas:
+    "title"
+    "image"
+    "tabs"
+    "content";
+}
+
+.grid-container--crew > picture {
+  grid-area: image;
+  max-width: 60%;
+  border-bottom: 1px solid hsla(231, 15%, 26%, 1); /* Revise width!! */
+}
+
+.grid-container--crew > .dot-indicators {
+  grid-area: tabs;
+}
+
+.grid-container--crew > .crew-details {
+  grid-area: content;
+}
+
+.crew-details h2 {
+  opacity: 0.5;
+}
+
 @media (min-width: 30em) {
   .numbered-title {
     justify-self: start;
@@ -358,6 +393,15 @@ p {
   .destination-meta {
     flex-direction: row;
     justify-content: space-evenly;
+  }
+
+  .grid-container--crew {
+    padding-block-end: 0rem;
+    grid-template-areas:
+      "title"
+      "content"
+      "tabs"
+      "image";
   }
 }
 
@@ -393,7 +437,8 @@ p {
     align-content: start;
   }
 
-  .grid-container--destination > img {
+  .grid-container--destination > picture,
+  .grid-container--crew > picture {
     max-width: 100%;
   }
 
@@ -401,6 +446,21 @@ p {
     --gap: min(7rem, 6vw); /* is this okay? */
     justify-content: start;
   }
+
+  .grid-container--crew {
+    grid-template-areas:
+      ". title title ."
+      ". content image ."
+      ". tabs image .";
+  }
+
+  .grid-container--crew > .dot-indicators {
+    justify-self: start;
+  }
+
+  /* .grid-container--crew > picture {
+    align-self: end;
+  } */
 }
 
 /* ----- Components ----- */
@@ -545,9 +605,10 @@ p {
 
 .underline-indicators > * {
   cursor: pointer;
-  padding: var(--underline-gap, 1rem) 0;
+  padding: var(--underline-gap, 0.5rem) 0;
   border: 0;
   border-bottom: 0.2rem solid hsl(var(--clr-neutral-100) / 0);
+  background-color: transparent;
 }
 
 .underline-indicators > *:hover,
@@ -559,6 +620,12 @@ p {
 .underline-indicators > [aria-selected="true"] {
   color: hsl(var(--clr-neutral-100) / 1);
   border-color: hsl(var(--clr-neutral-100) / 1);
+}
+
+@media (min-width: 30em) {
+  .underline-indicators > * {
+    --underline-gap: 0.625rem;
+  }
 }
 
 .tab-list {
@@ -574,15 +641,15 @@ p {
 .dot-indicators > * {
   cursor: pointer;
   border: 0;
+  width: 10px;
   aspect-ratio: 1;
   border-radius: 50%;
-  padding: 0.625em;
   background-color: hsl(var(--clr-neutral-100) / 0.25);
 }
 
 @media (min-width: 50em) {
   .dot-indicators > * {
-    padding: 0.9375em;
+    width: 15px;
   }
 }
 
@@ -709,6 +776,7 @@ p {
 
 body {
   background-size: cover;
+  background-repeat: no-repeat;
   background-position: bottom center;
 }
 
@@ -726,5 +794,43 @@ body {
 @media (min-width: 50em) {
   .home {
     background-image: url(./assets/home/background-home-desktop.jpg);
+  }
+}
+
+/* Destination Page BG */
+
+.destination {
+  background-image: url(./assets/destination/background-destination-mobile.jpg);
+}
+
+@media (min-width: 30em) {
+  .destination {
+    background-position: center center;
+    background-image: url(./assets/destination/background-destination-tablet.jpg);
+  }
+}
+
+@media (min-width: 50em) {
+  .destination {
+    background-image: url(./assets/destination/background-destination-desktop.jpg);
+  }
+}
+
+/* Crew Page BG */
+
+.crew {
+  background-image: url(./assets/crew/background-crew-mobile.jpg);
+}
+
+@media (min-width: 30em) {
+  .crew {
+    background-position: center center;
+    background-image: url(./assets/crew/background-crew-tablet.jpg);
+  }
+}
+
+@media (min-width: 40em) {
+  .crew {
+    background-image: url(./assets/crew/background-crew-desktop.jpg);
   }
 }

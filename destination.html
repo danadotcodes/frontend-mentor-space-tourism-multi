@@ -81,34 +81,40 @@
       <h1 class="numbered-title">
         <span aria-hidden="true">01</span>Pick your destination
       </h1>
-      <img src="./assets/destination/image-moon.png" alt="The moon" />
+      <picture>
+        <source
+          srcset="./assets/destination/image-moon.webp"
+          type="image/webp"
+        />
+        <img src="./assets/destination/image-moon.png" alt="The Moon" />
+      </picture>
       <div class="tab-list | underline-indicators flex">
         <button
           aria-selected="true"
-          class="text-accent-400 bg-neutral-900 ff-primary-cond uppercase letter-spacing-2"
+          class="text-accent-400 ff-primary-cond uppercase letter-spacing-2"
         >
           Moon
         </button>
         <button
           aria-selected="false"
-          class="text-accent-400 bg-neutral-900 ff-primary-cond uppercase letter-spacing-2"
+          class="text-accent-400 ff-primary-cond uppercase letter-spacing-2"
         >
           Mars
         </button>
         <button
           aria-selected="false"
-          class="text-accent-400 bg-neutral-900 ff-primary-cond uppercase letter-spacing-2"
+          class="text-accent-400 ff-primary-cond uppercase letter-spacing-2"
         >
           Europa
         </button>
         <button
           aria-selected="false"
-          class="text-accent-400 bg-neutral-900 ff-primary-cond uppercase letter-spacing-2"
+          class="text-accent-400 ff-primary-cond uppercase letter-spacing-2"
         >
           Titan
         </button>
       </div>
-      <article class="destination-details">
+      <article class="destination-details | flow">
         <h2 class="text-neutral-100 ff-accent fs-800 uppercase">Moon</h2>
         <p class="fs-300">
           See our planet as you've never seen it before. A perfect relaxing trip
