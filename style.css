@@ -266,7 +266,7 @@ select {
 }
 
 .flow > *:where(:not(:first-child)) {
-  margin-top: var(--flow-space, 1rem);
+  margin-block-start: var(--flow-space, 1rem);
 }
 
 .container {
@@ -306,16 +306,17 @@ p {
   place-items: center;
   text-align: center;
   padding-inline: 1rem;
-  padding-bottom: 3.625rem;
+  padding-block-end: 3.625rem;
 }
 
 .grid-container .numbered-title {
   grid-area: title;
 }
 
-.grid-container p {
+/* .grid-container p:not([class])  {
   max-width: 50ch;
-}
+  outline: 3px solid limegreen;
+} */
 
 /* Destination */
 
@@ -337,15 +338,27 @@ p {
   grid-area: tabs;
 }
 
-.grid-container--destination > .destination-info {
+.grid-container--destination > .destination-details {
   grid-area: content;
 }
 
 .destination-meta {
   flex-direction: column;
   border-top: 1px solid hsla(231, 15%, 26%, 1);
-  padding-top: 2rem;
-  margin-top: 2rem;
+  padding-block-start: 2rem;
+  margin-block-start: 2rem;
+}
+
+@media (min-width: 30em) {
+  .numbered-title {
+    justify-self: start;
+    margin-block-start: 2.5rem;
+  }
+
+  .destination-meta {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
 }
 
 @media (min-width: 50em) {
@@ -358,17 +371,35 @@ p {
     text-align: left;
   }
 
-  .grid-container > *:first-child {
+  .grid-container--home {
+    /* align-items: end; */
+    padding-block-end: 8.1875rem;
+  }
+
+  .grid-container--home > *:first-child {
     grid-column: 2;
   }
 
-  .grid-container > *:last-child {
+  .grid-container--home > *:last-child {
     grid-column: 3;
   }
 
-  .grid-container--home {
-    align-items: end;
-    padding-bottom: 8.1875rem;
+  .grid-container--destination {
+    grid-template-areas:
+      ". title title ."
+      ". image tabs ."
+      ". image content .";
+    justify-items: start;
+    align-content: start;
+  }
+
+  .grid-container--destination > img {
+    max-width: 100%;
+  }
+
+  .destination-meta {
+    --gap: min(7rem, 6vw); /* is this okay? */
+    justify-content: start;
   }
 }
 
@@ -425,8 +456,8 @@ p {
     flex-direction: column;
 
     /* padding: min(20rem, 5vh); */
-    padding-top: 7.375rem;
-    padding-left: 2rem;
+    padding-block-start: 7.375rem;
+    padding-inline-start: 2rem;
     transform: translateX(100%);
     transition: transform 500ms ease-in-out;
   }
