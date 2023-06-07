@@ -77,12 +77,16 @@ ol[role="list"] {
 }
 
 img,
-picture,
 video,
 canvas,
 svg {
-  display: block;
   max-width: 100%;
+  display: block;
+}
+
+picture {
+  max-width: 100%;
+  /* display: block; */
 }
 
 input,
@@ -338,6 +342,7 @@ p {
 .grid-container--destination > picture {
   grid-area: image;
   max-width: 60%;
+  align-self: start; /* Image "bounce" temp solution, revise? */
 }
 
 .grid-container--destination > .tab-list {
@@ -437,8 +442,7 @@ p {
     align-content: start;
   }
 
-  .grid-container--destination > picture,
-  .grid-container--crew > picture {
+  .grid-container--destination > picture {
     max-width: 100%;
   }
 
@@ -448,19 +452,28 @@ p {
   }
 
   .grid-container--crew {
+    /* Refactor col 2 & 3 minmax values per crew name & image sizes */
+    grid-template-columns: minmax(1rem, 1fr) minmax(0, 37rem) minmax(0, 23rem) minmax(
+        1rem,
+        1fr
+      );
     grid-template-areas:
       ". title title ."
       ". content image ."
       ". tabs image .";
+    /* justify-items: start; */
   }
 
-  .grid-container--crew > .dot-indicators {
+  /* .grid-container--crew > .dot-indicators {
     justify-self: start;
-  }
-
-  /* .grid-container--crew > picture {
-    align-self: end;
   } */
+
+  .grid-container--crew > picture {
+    /* Refactor col 2 & 3 minmax values per crew name & image sizes */
+    grid-column: span 2;
+    max-width: 90%;
+    align-self: end;
+  }
 }
 
 /* ----- Components ----- */
