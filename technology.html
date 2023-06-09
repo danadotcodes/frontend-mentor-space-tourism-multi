@@ -77,36 +77,151 @@
         </ul>
       </nav>
     </header>
-    <main id="main" class="grid-container grid-container--technology"></main>
+    <main id="main" class="grid-container grid-container--technology">
+      <h1 class="numbered-title">
+        <span aria-hidden="true">03</span>Space launch 101
+      </h1>
+
+      <picture id="vehicle-image">
+        <source
+          srcset="./assets/technology/image-launch-vehicle-portrait.jpg"
+        />
+        <img
+          src="./assets/technology/image-launch-vehicle-landscape.jpg"
+          alt="The launch vehicle"
+        />
+      </picture>
+      <picture id="port-image" hidden>
+        <source srcset="./assets/technology/image-spaceport-portrait.jpg" />
+        <img
+          src="./assets/technology/image-spaceport-landscape.jpg"
+          alt="The spaceport"
+        />
+      </picture>
+      <picture id="capsule-image" hidden>
+        <source srcset="./assets/technology/image-space-capsule-portrait.jpg" />
+        <img
+          src="./assets/technology/image-space-capsule-landscape.jpg"
+          alt="The space capsule"
+        />
+      </picture>
+
+      <div
+        aria-label="technology list"
+        class="numbered-indicators | flex"
+        role="tablist"
+      >
+        <button
+          aria-controls="vehicle-tab"
+          aria-selected="true"
+          data-image="vehicle-image"
+          role="tab"
+          tabindex="0"
+        >
+          1
+          <!-- <span class="visually-hidden">The launch vehicle</span> -->
+        </button>
+        <button
+          aria-controls="port-tab"
+          aria-selected="false"
+          data-image="port-image"
+          role="tab"
+          tabindex="-1"
+        >
+          2
+          <!-- <span class="visually-hidden">The spaceport</span> -->
+        </button>
+        <button
+          aria-controls="capsule-tab"
+          aria-selected="false"
+          data-image="capsule-image"
+          role="tab"
+          tabindex="-1"
+        >
+          3
+          <!-- <span class="visually-hidden">The space capsule</span> -->
+        </button>
+      </div>
+
+      <!-- Launch Vehicle -->
+      <article
+        class="technology-details | flow"
+        id="vehicle-tab"
+        role="tabpanel"
+        tabindex="0"
+      >
+        <header class="flow flow--space-small">
+          <!-- H2 font size tbd.. -->
+          <h2
+            class="text-accent-400 ff-primary-cond uppercase letter-spacing-primary"
+          >
+            The terminology...
+          </h2>
+          <p class="text-neutral-100 ff-accent fs-600 uppercase">
+            Launch Vehicle
+          </p>
+        </header>
+        <p>
+          A launch vehicle or carrier rocket is a rocket-propelled vehicle used
+          to carry a payload from Earth's surface to space, usually to Earth
+          orbit or beyond. Our WEB-X carrier rocket is the most powerful in
+          operation. Standing 150 metres tall, it's quite an awe-inspiring sight
+          on the launch pad!
+        </p>
+      </article>
+
+      <!-- Spaceport -->
+      <article
+        hidden
+        class="technology-details | flow"
+        id="port-tab"
+        role="tabpanel"
+        tabindex="0"
+      >
+        <header class="flow flow--space-small">
+          <!-- H2 font size tbd.. -->
+          <h2
+            class="text-accent-400 ff-primary-cond uppercase letter-spacing-primary"
+          >
+            The terminology...
+          </h2>
+          <p class="text-neutral-100 ff-accent fs-600 uppercase">Spaceport</p>
+        </header>
+        <p>
+          A spaceport or cosmodrome is a site for launching (or receiving)
+          spacecraft, by analogy to the seaport for ships or airport for
+          aircraft. Based in the famous Cape Canaveral, our spaceport is ideally
+          situated to take advantage of the Earth's rotation for launch.
+        </p>
+      </article>
+
+      <!-- Space Capsule -->
+      <article
+        hidden
+        class="technology-details | flow"
+        id="capsule-tab"
+        role="tabpanel"
+        tabindex="0"
+      >
+        <header class="flow flow--space-small">
+          <!-- H2 font size tbd.. -->
+          <h2
+            class="text-accent-400 ff-primary-cond uppercase letter-spacing-primary"
+          >
+            The terminology...
+          </h2>
+          <p class="text-neutral-100 ff-accent fs-600 uppercase">
+            Space Capsule
+          </p>
+        </header>
+        <p>
+          A space capsule is an often-crewed spacecraft that uses a blunt-body
+          reentry capsule to reenter the Earth's atmosphere without wings. Our
+          capsule is where you'll spend your time during the flight. It includes
+          a space gym, cinema, and plenty of other activities to keep you
+          entertained.
+        </p>
+      </article>
+    </main>
   </body>
 </html>
-
-<!--
-  03 Space launch 101
-
-  1
-  2
-  3
-
-  The terminology...
-  Launch vehicle
-
-  A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a 
-  payload from Earth's surface to space, usually to Earth orbit or beyond. Our 
-  WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall, 
-  it's quite an awe-inspiring sight on the launch pad! 
-
-  Spaceport
-
-  A spaceport or cosmodrome is a site for launching (or receiving) spacecraft, 
-  by analogy to the seaport for ships or airport for aircraft. Based in the 
-  famous Cape Canaveral, our spaceport is ideally situated to take advantage 
-  of the Earth’s rotation for launch.
-
-  Space capsule
-
-  A space capsule is an often-crewed spacecraft that uses a blunt-body reentry 
-  capsule to reenter the Earth's atmosphere without wings. Our capsule is where 
-  you'll spend your time during the flight. It includes a space gym, cinema, 
-  and plenty of other activities to keep you entertained.
--->
